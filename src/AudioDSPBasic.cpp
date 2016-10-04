@@ -434,16 +434,7 @@ unsigned int cDSPProcessorStream::PostProcessNeededSamplesize(unsigned int modeI
 
 float cDSPProcessorStream::PostProcessGetDelay(unsigned int modeId)
 {
-  CLockObject lock(g_DSPProcessor.m_Mutex);
-
-  float delay = 0.0;
-
-  if (g_DSPProcessor.m_SpeakerDelayMax > 0)
-  {
-    delay += (float)(g_DSPProcessor.m_SpeakerDelayMax) / DELAY_RESOLUTION;
-  }
-
-  return delay;
+  return 0.0f;
 }
 
 void cDSPProcessorStream::PostProcessChannelSample(AE_DSP_CHANNEL channel, float **array_out, int pos)
