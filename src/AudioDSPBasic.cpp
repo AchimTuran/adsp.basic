@@ -718,7 +718,7 @@ bool cDSPProcessor::InitDSP()
     hook.category           = AE_DSP_MENUHOOK_POST_PROCESS;
     hook.iLocalizedStringId = 30012;
     hook.iRelevantModeId    = ID_POST_PROCESS_SPEAKER_CORRECTION;
-    hook.bNeedPlayback      = true;
+    hook.bNeedPlayback      = false;
     ADSP->AddMenuHook(&hook);
   }
 
