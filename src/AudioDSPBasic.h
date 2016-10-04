@@ -62,7 +62,7 @@ class cDSPProcessorStream
    * Basic addon functions
    */
 public:
-  cDSPProcessorStream(unsigned int id);
+  cDSPProcessorStream(AE_DSP_STREAM_ID id);
   virtual ~cDSPProcessorStream();
 
   /*!
@@ -125,7 +125,7 @@ public:
   unsigned int  OutputResampleProcess(float **array_in, float **array_out, unsigned int samples);
 
 private:
-  const unsigned int        m_StreamID;           /*!< @brief (required) unique id of the audio stream packets */
+  const AE_DSP_STREAM_ID    m_StreamID;           /*!< @brief (required) unique id of the audio stream packets */
   AE_DSP_SETTINGS           m_Settings;           /*!< @brief (required) the active KODI audio settings */
   AE_DSP_STREAM_PROPERTIES  m_Properties;
   int                       m_iStreamType;

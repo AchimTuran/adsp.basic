@@ -620,6 +620,13 @@ cDSPProcessor g_DSPProcessor;
 cDSPProcessor::cDSPProcessor() :
   m_outChannelPresentFlags(0)
 {
+  m_CurrentOutChannelPresentFlags = AE_DSP_PRSNT_CH_UNDEFINED;
+
+  memset(m_OutputGain, 0, sizeof(m_OutputGain));
+  memset(m_SpeakerDelay, 0, sizeof(m_SpeakerDelay));
+  m_SpeakerDelayMax = 0;
+  m_SpeakerCorrection = false;
+  m_outChannelPresentFlags = AE_DSP_PRSNT_CH_UNDEFINED;
 }
 
 cDSPProcessor::~cDSPProcessor()
@@ -674,6 +681,7 @@ bool cDSPProcessor::InitDSP()
   for (int i = 0; i < AE_DSP_CH_MAX; ++i)
     m_SpeakerDelay[i] = 0;
 
+  m_SpeakerDelayMax = 0;
   m_SpeakerCorrection = false;
 
   CDSPSettings settings;
